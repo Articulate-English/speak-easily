@@ -24,4 +24,4 @@ Then open http://127.0.0.1:8000/.
 - `lesson-data.js` / `lesson-data.json` — the questions
 - `mapping-data.json` — cover image per topic
 
-Cover images are free-to-use stock from Pexels and Pixabay.
+Cover images are free-to-use stock from Pexels.

@@ -2,7 +2,8 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.pexels.com https://cdn.pixabay.com; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Speak Easily — English Question Cards for Teens</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,32 +57,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .theme-cycle-btn:hover{border-color:var(--accent);color:var(--text);background:var(--accent-bg)}
 .theme-cycle-btn .dot{width:6px;height:6px;border-radius:50%;transition:background .2s}
 
-/* ═══ HERO ═══ */
-.hero{padding:80px 32px 60px;text-align:center;max-width:720px;margin:0 auto}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:9999px;background:var(--accent-bg);border:1px solid var(--border-subtle);font-size:.65rem;font-weight:590;color:var(--accent);margin-bottom:20px;letter-spacing:1px;text-transform:uppercase;animation:fadeIn .6s ease}
-.hero h1{font-size:2.8rem;font-weight:510;line-height:1.05;letter-spacing:-1.5px;margin-bottom:12px;animation:slideUp .6s ease}
-.hero h1 .accent{color:var(--accent)}
-.hero p{font-size:1.05rem;color:var(--text-muted);line-height:1.7;max-width:520px;margin:0 auto;animation:slideUp .6s ease .1s both}
-
-/* ═══ SECTION ═══ */
-.section{padding:60px 32px;max-width:1200px;margin:0 auto}
-.section-header{margin-bottom:40px}
-.section-header h2{font-size:1.5rem;font-weight:510;letter-spacing:-0.5px;margin-bottom:6px}
-.section-header p{color:var(--text-muted);font-size:.9rem}
-.section-num{font-family:var(--mono);font-size:.6rem;font-weight:510;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
-
-/* ═══ LESSON GRID ═══ */
-.lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
-.lesson-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:8px;transition:all .2s cubic-bezier(.4,0,.2,1);text-decoration:none;color:inherit;display:block;overflow:hidden;position:relative;aspect-ratio:4/3;cursor:pointer}
-.lesson-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.4)}
-.lesson-card-img-container{position:relative;width:100%;height:100%;overflow:hidden}
-.lesson-card-img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;top:0;left:0;z-index:1}
-/* Cover card - no hue overlay, clean image */
-.lesson-card-content{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;background:linear-gradient(transparent 30%,rgba(0,0,0,0.75));pointer-events:none}
-.lesson-card-body{position:relative;z-index:4;pointer-events:auto}
-.lesson-cat{font-family:var(--mono);font-size:.55rem;font-weight:510;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
-.lesson-card h3{font-size:.95rem;font-weight:510;color:var(--text);margin-bottom:2px;letter-spacing:-0.2px}
-.lesson-count{font-size:.7rem;color:var(--text-dim)}
+/* ═══ HERO / SECTION / LESSON GRID ═══ (single copy — the merged template had these twice) */
 
 /* ═══ DECK / SLIDE VIEW ═══ */
 .deck-view{display:none;position:fixed;inset:0;z-index:100;background:var(--bg);flex-direction:column}
@@ -201,19 +177,18 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 
 /* ═══ FOOTER ═══ */
 .footer{padding:24px 32px;text-align:center;font-size:.7rem;color:var(--text-dim);border-top:1px solid var(--border-subtle)}
-.nav-cta:hover{background:var(--cta-hover);transform:translateY(-1px)}
 
 .hero{padding:70px 40px 50px;text-align:center;max-width:800px;margin:0 auto}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;background:var(--bg3);border:1px solid var(--border);font-size:.7rem;font-weight:600;color:var(--accent);margin-bottom:16px;letter-spacing:1px;text-transform:uppercase}
-.hero h1{font-family:'Fira Code',monospace;font-size:2.8rem;font-weight:700;line-height:1.1;margin-bottom:10px}
+.hero h1{font-family:var(--mono);font-size:2.8rem;font-weight:700;line-height:1.1;margin-bottom:10px}
 .hero h1 .accent{color:var(--accent)}
 .hero p{font-size:1rem;color:var(--text-muted);line-height:1.7;max-width:560px;margin:0 auto}
 
 .section{padding:60px 40px;max-width:1200px;margin:0 auto}
 .section-header{margin-bottom:40px}
-.section-header h2{font-family:'Fira Code',monospace;font-size:1.6rem;font-weight:700;margin-bottom:6px}
+.section-header h2{font-family:var(--mono);font-size:1.6rem;font-weight:700;margin-bottom:6px}
 .section-header p{color:var(--text-muted);font-size:.9rem}
-.section-num{font-family:'Fira Code',monospace;font-size:.6rem;font-weight:700;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px}
+.section-num{font-family:var(--mono);font-size:.6rem;font-weight:700;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px}
 
 .lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
 .lesson-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;transition:transform .2s,border-color .2s,box-shadow .2s;text-decoration:none;color:inherit;display:block;overflow:hidden;position:relative;aspect-ratio:4/3}
@@ -240,44 +215,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 
 /* ═══ UTILITY ═══ */
 .hidden{display:none!important}
-  .how-grid{grid-template-columns:1fr}
-}
 
-/* ═══ 3-IMAGE GRID ═══ */
-.slide-visuals{display:block;margin-bottom:24px}
-.vis-slot{border-radius:10px;overflow:hidden;background:var(--bg2);position:relative;aspect-ratio:16/9}
-.vis-slot img{width:100%;height:100%;object-fit:cover;display:block;animation:kenBurns 12s ease-in-out infinite alternate}
-.vis-slot::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,28,.15) 0%,rgba(28,28,28,.55) 100%);pointer-events:none}
-.vis-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:.6rem;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase}
-.vis-slot .vis-label{position:absolute;bottom:8px;left:10px;z-index:2;font-family:'Fira Code',monospace;font-size:.55rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);text-shadow:0 1px 4px rgba(0,0,0,.6)}
-.vis-slot.empty{opacity:.4}
-.slide-visuals.images-off .vis-slot img{display:none}
-.slide-visuals.images-off .vis-slot::after{display:none}
-
-/* ═══ DECK IMAGE TOGGLE ═══ */
-.deck-img-toggle{display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;flex-shrink:0}
-.deck-img-toggle .img-toggle-label{font-family:'Fira Code',monospace;font-size:.6rem;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase}
-.img-toggle-btn{width:32px;height:18px;border-radius:9px;background:var(--border);position:relative;transition:background .2s}
-.img-toggle-btn::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--text-dim);transition:transform .2s,background .2s}
-.img-toggle-btn.on{background:var(--accent)}
-.img-toggle-btn.on::after{transform:translateX(14px);background:#fff}
-
-
-/* ═══ VERTICAL SLIDE COUNTER ═══ */
-.deck-counter-v{position:fixed;right:20px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;z-index:10}
-.deck-counter-current{font-family:'Fira Code',monospace;font-size:1.4rem;font-weight:700;color:var(--accent);line-height:1}
-.deck-counter-bar{width:3px;height:60px;background:var(--bg3);border-radius:2px;position:relative;overflow:hidden}
-.deck-counter-fill{position:absolute;bottom:0;left:0;width:100%;background:var(--accent);border-radius:2px;transition:height .3s ease}
-.deck-counter-total{font-family:'Fira Code',monospace;font-size:.7rem;color:var(--text-dim);line-height:1}
-
-@media(max-width:700px){
-  .deck-counter-v{right:10px}
-  .deck-counter-current{font-size:1.1rem}
-  .deck-counter-bar{height:40px}
-}
+/* (removed dead CSS for .slide-visuals / .deck-img-toggle / .deck-counter-v — no such markup) */
 </style>
 </head>
-<body data-site="1">
+<body>
 
 <div class="nav">
   <a href="#" class="nav-logo">&#9670; <span>SPEAK</span> EASILY</a>
@@ -384,9 +326,6 @@ if(!lessonData.length){
     .catch(function(e) { console.error('Failed to load lesson data:', e); });
 }
 
-var topicImages = {};
-try { fetch("topic-images.json").then(function(r){return r.json();}).then(function(d){topicImages=d;}).catch(function(){}); } catch(e){}
-
 (function(){
 "use strict";
 var currentCat=null,currentTopic=null,currentTopicObj=null,questions=[],currentIndex=0;
@@ -446,15 +385,7 @@ function initLibrary(){
   grid.innerHTML = '';
   buildTopicNumbers();
   var mappingLookup = {};
-  // Use local cover images first (reliable, no network needed)
-  try {
-    if(typeof coverImageMap !== 'undefined'){
-      Object.keys(coverImageMap).forEach(function(slug){
-        mappingLookup[slug] = coverImageMap[slug];
-      });
-    }
-  } catch(e) {}
-  // Then overlay online images if available (higher quality but needs network)
+  // Cover images come from mapping-data.json (free stock, byte-verified per topic).
   try {
     if(mappingData && mappingData.length > 0){
       mappingData.forEach(function(item){
@@ -493,14 +424,6 @@ document.addEventListener('DOMContentLoaded', function(){
   tryInitLibrary();
 });
 
-var mappingLookup = {};
-// Use local cover images from downloaded set
-var coverImageMap = {};
-// Populate mappingLookup from cover images
-Object.keys(coverImageMap).forEach(function(slug){
-  mappingLookup[slug] = coverImageMap[slug];
-});
-
 // Grid is rendered once by initLibrary() (see above), which waits for
 // lesson-data + image mapping to load and uses the resolved online covers.
 // (Removed duplicate immediate render that painted broken local paths first.)
@@ -519,7 +442,10 @@ function _toUS(s){
     'whilst':'while','amongst':'among','towards':'toward','labour':'labor',
     'humour':'humor','rumour':'rumor','honour':'honor','favour':'favor',
     'recognised':'recognized','organising':'organizing','prioritise':'prioritize',
-    'summarise':'summarize','apologise':'apologize','centre':'center'
+    'summarise':'summarize','apologise':'apologize','centre':'center',
+    'colours':'colors','practising':'practicing','practised':'practiced',
+    'realise':'realize','realised':'realized','realising':'realizing',
+    'apologised':'apologized','apologising':'apologizing'
   };
   var out = s;
   Object.keys(m).forEach(function(k){
@@ -567,6 +493,11 @@ window.openDeck=function(catName,topic){
 };
 
 window.closeDeck=function(){
+  // renderSlide() writes inline custom properties on <html>; inline styles beat the
+  // [data-theme] rules, so they must be cleared or the theme cycler goes dead.
+  ['--bg','--bg-card','--accent','--text','--cta','--bg2','--bg3'].forEach(function(p){
+    document.documentElement.style.removeProperty(p);
+  });
   document.getElementById('deckView').classList.remove('open');
   currentCat=null;currentTopic=null;currentTopicObj=null;questions=[];currentIndex=0;
 };
@@ -648,7 +579,7 @@ window.cycleTheme=function(){
   if(label) label.textContent = themeLabels[nextTheme] || nextTheme;
 };
 
-// Color themes (7 palettes from William)
+// Colour themes (7 palettes)
 var colorThemes = [
   {name:'jungle',bg:'#0F1400',panel:'#1A2A0F',accent:'#ffe000',text:'#E8F5D0',cta:'#72ce27'},
   {name:'ocean',bg:'#0A1428',panel:'#142850',accent:'#abc4ff',text:'#edf2fb',cta:'#ccdbfd'},
@@ -665,18 +596,6 @@ function getTopicTheme(slug){
   }
   return topicThemeMap[slug];
 }
-function extractKeyword(question, topicSlug, questionIndex){
-  var cleaned = question.toLowerCase()
-    .replace(/^(in your opinion|do you|what|how|why|when|where|who|would you|have you|are you|is|are|can you|do|does|did|would|could|should|have|has|had)/g, '')
-    .replace(/\?/g, '')
-    .replace(/\b(you|your|the|a|an|of|to|in|on|at|for|and|or|but|with|from|by|it|is|are|was|were|be|been|being|that|this|these|those|there|here|they|them|their|we|us|our|my|me|do|does|did|about|like|think|feel|know|want|need|go|get|make|take|have|has|had)\b/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-  var words = cleaned.split(' ').filter(function(w){ return w.length > 3; });
-  if (words.length === 0) { return topicSlug + '-' + questionIndex; }
-  var keyword = words.slice(0, 2).join(' ');
-  return keyword + ' ' + topicSlug + questionIndex;
-}
 function getQuestionImage(question, topicSlug, questionIndex){
   // Try topic-specific Pixabay CDN image first
   var topicMap = (window.localImageMap && window.localImageMap[topicSlug]) || null;
@@ -688,7 +607,7 @@ function getQuestionImage(question, topicSlug, questionIndex){
     if (keys.length) return topicMap[keys[questionIndex % keys.length]];
   }
   // Final fallback: generic Pixabay photo
-  return 'https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_1280.jpg';
+  return 'https://images.pexels.com/photos/7972540/pexels-photo-7972540.jpeg?auto=compress&cs=tysrgb&w=1280';
 }
 
 // Slide backgrounds: one cover image per topic (built from mapping-data.json
@@ -787,34 +706,30 @@ function renderSlide(){
   }
 }
 
-// Image toggle
+// Image toggle. The toggle node is optional: without this guard a missing element
+// throws and aborts the whole IIFE, which silently kills the keyboard handler below.
 var deckImagesOn = true;
-document.getElementById('deckImgToggle').addEventListener('click', function() {
-  deckImagesOn = !deckImagesOn;
-  document.getElementById('deckImgToggleBtn').classList.toggle('on', deckImagesOn);
-  var visuals = document.getElementById('slideVisuals');
-  if (visuals) visuals.classList.toggle('images-off', !deckImagesOn);
-});
+var deckImgToggle = document.getElementById('deckImgToggle');
+if (deckImgToggle) {
+  deckImgToggle.addEventListener('click', function() {
+    deckImagesOn = !deckImagesOn;
+    var b = document.getElementById('deckImgToggleBtn');
+    if (b) b.classList.toggle('on', deckImagesOn);
+    var visuals = document.getElementById('slideVisuals');
+    if (visuals) visuals.classList.toggle('images-off', !deckImagesOn);
+  });
+}
 
 document.addEventListener("keydown",function(e){
   if(!document.getElementById("deckView").classList.contains("open"))return;
   if(e.key==="ArrowRight"||e.key===" "){e.preventDefault();nextSlide();}
   if(e.key==="ArrowLeft"){e.preventDefault();prevSlide();}
   if(e.key==="r"||e.key==="R"){toggleAnswers();}
-  if(e.key==="i"||e.key==="I"){document.getElementById('deckImgToggle').click();}
+  if(e.key==="i"||e.key==="I"){ if(deckImgToggle) deckImgToggle.click(); }
   if(e.key==="Escape"){closeDeck();}
 });
 })();
 </script>
 
-<!-- Donate Section — inconspicuous, bottom of page -->
-<div id="donate-bar" style="text-align:center;padding:12px 0 8px;font-size:11px;color:rgba(0,0,0,0.35);letter-spacing:0.5px;border-top:1px solid rgba(0,0,0,0.08);margin-top:auto">
-  <span style="margin-right:10px">Support this project</span>
-  <a href="https://paypal.me/williamgraythomason" target="_blank" rel="noopener" style="display:inline-block;background:#0070ba;color:#fff;padding:4px 12px;border-radius:4px;text-decoration:none;font-weight:600;font-size:11px;margin:0 4px">PayPal</a>
-  <a href="https://wise.com/payme/williamgraythomason" target="_blank" rel="noopener" style="display:inline-block;background:#9fe870;color:#163300;padding:4px 12px;border-radius:4px;text-decoration:none;font-weight:600;font-size:11px;margin:0 4px">Wise</a>
-</div>
-
-<footer style="text-align:center;padding:14px;color:var(--dim);font-size:.7rem;border-top:1px solid var(--border);margin-top:10px">Site made by <a href="https://wgt-edutech.github.io/Portfolio/" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">WGT EduTech</a></footer>
-<p style="text-align:center;font-size:.7rem;color:#6b7280;padding:12px 24px;border-top:1px solid rgba(255,255,255,.08);margin-top:20px;">Disclaimer: This is an independent practice resource for IELTS-style exam preparation. It is not affiliated with, endorsed by, or connected to IELTS, IDP Education, British Council, or Cambridge Assessment English. IELTS is a registered trademark of its respective owners.</p>
 </body>
 </html>
