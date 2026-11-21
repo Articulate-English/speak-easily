@@ -7,8 +7,9 @@ Feelings, and The World and the Future — 240 original open questions. Each
 question carries a "go deeper" re-frame, two vocabulary items with plain
 definitions, and short model answers.
 
-Built in the Sliding In visual style: dark glass cards, a cover image per topic,
-a UK/US spelling toggle and a colour theme cycler.
+Built in the Sliding In visual style: dark glass cards, a cover image per topic, a
+colour theme cycler, and a one-tap UK &#8596; US switch that rewrites every question,
+vocabulary item and model answer between British and American English on the fly.
 
 ## Run locally
 
