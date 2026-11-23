@@ -4,12 +4,14 @@ English conversation question decks for teenagers (A2–B1).
 
 Twenty topics across four categories — School Life, Online Life, Family and
 Feelings, and The World and the Future — 240 original open questions. Each
-question carries a "go deeper" re-frame, two vocabulary items with plain
-definitions, and short model answers.
+question carries a "Go deeper" re-frame, two vocabulary items with part of speech,
+a plain definition and an example sentence, two "Keep talking" follow-up questions,
+three model answers and a creative "Make it memorable" answer.
 
-Built in the Sliding In visual style: dark glass cards, a cover image per topic, a
-colour theme cycler, and a one-tap UK &#8596; US switch that rewrites every question,
-vocabulary item and model answer between British and American English on the fly.
+Dark glass cards, a cover image per topic, and a colour theme cycler. Vocabulary is
+taught two ways: tap an in-sentence word, or tap a chip in the "Words to use" row, to
+open a tooltip with the word class, meaning and an example. A one-tap UK &#8596; US
+button switches every British spelling to American English.
 
 ## Run locally
 

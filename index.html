@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.pexels.com https://cdn.pixabay.com; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.pexels.com https://cdn.pixabay.com; connect-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Speak Easily — English Question Cards for Teens</title>
@@ -103,14 +103,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .slide-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.3) 60%,rgba(0,0,0,0.7) 100%);pointer-events:none}
 
 /* Slide content overlay */
-.slide-content{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:40px 60px;max-width:100%}
+.slide-content{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:flex-start;overflow-y:auto;overscroll-behavior:contain;padding:40px 60px;max-width:100%}
 @media(max-width:768px){.slide-content{padding:24px 20px}}
 
 /* ── Question text box ── */
 .slide-question-box{
   background:rgba(0,0,0,0.45);
   border:1px solid rgba(255,255,255,0.12);border-radius:12px;border-top:2px solid var(--accent);
-  padding:28px 32px;margin-bottom:16px;
+  padding:28px 32px;margin-bottom:16px;margin-top:auto;
   animation:slideUp .4s ease .1s both;
   box-shadow:0 4px 24px rgba(0,0,0,0.3),0 0 0 1px rgba(255,255,255,0.04) inset;
 }
@@ -135,6 +135,31 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 /* ── Go deeper ── */
 .go-deeper{font-size:.95rem;color:rgba(255,255,255,0.75);line-height:1.6;padding-left:14px;border-left:2px solid var(--accent);margin-top:6px}
 .go-deeper-label{display:block;font-family:var(--mono);font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+
+/* ── Keep talking (conversation follow-ups) ── */
+.keep-talking{margin-top:10px;padding-left:14px;border-left:2px solid rgba(255,255,255,0.15)}
+.keep-talking ul{margin:0;padding-left:16px}
+.keep-talking li{font-size:.92rem;color:rgba(255,255,255,0.78);line-height:1.55;margin-bottom:5px}
+.keep-talking li:last-child{margin-bottom:0}
+
+/* ── Words to use chips ── */
+.vocab-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.vocab-chip{
+  font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.6px;
+  padding:4px 10px;border-radius:999px;cursor:pointer;
+  border:1px dashed var(--accent);color:var(--accent);background:rgba(255,255,255,0.03);
+}
+.vocab-chip:hover,.vocab-chip:focus-visible{background:var(--accent);color:#0b0d10;outline:none}
+
+/* tooltip word-class chip + example */
+.vocab-tooltip .vt-pos{display:inline-block;font-family:var(--mono);font-size:.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#0b0d10;background:var(--accent);border-radius:4px;padding:2px 6px;margin:0 6px 4px 0;vertical-align:middle}
+.vocab-tooltip .vt-def{display:block}
+.vocab-tooltip .vt-ex{display:block;margin-top:6px;font-style:italic;color:rgba(255,255,255,0.7)}
+
+/* ── Creative model answer ── */
+.creative-answer{margin-top:12px;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.18)}
+.creative-answer-label{display:block;font-family:var(--mono);font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+.creative-answer p{margin:0;font-size:.9rem;line-height:1.6;color:#fff;font-style:italic}
 
 /* ── Reveal possible answers ── */
 .answers-card{
@@ -239,7 +264,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 <div class="hero">
   <div class="hero-badge">&#9679; English for Teenagers</div>
   <h1>Speak <span class="accent">Easily</span></h1>
-  <p>Real questions about your life — school, friends, family, the internet and the future. Pick a topic, slide through the questions and start talking. No wrong answers, no worksheets. One tap switches every question between UK and US English.</p>
+  <p>Real questions about your life — school, friends, family, the internet and the future. Pick a topic, slide through the questions and start talking. No wrong answers, no worksheets. One tap switches every British spelling to American English.</p>
 </div>
 
 <div class="section" id="lessons">
@@ -266,7 +291,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
     <div class="how-step">
       <div class="how-step-num">02</div>
       <h3>Slide Through</h3>
-      <p>Each question is presented as a visual slide. Use arrow keys or buttons to navigate, and tap the UK/US button to switch every question, vocabulary word and model answer between British and American English on the fly. Every time you open a topic the questions appear in a fresh order.</p>
+      <p>Each question is presented as a visual slide. Use arrow keys or buttons to navigate, and tap the UK/US button to switch every British spelling to American English on the fly. Every time you open a topic the questions appear in a fresh order.</p>
     </div>
     <div class="how-step">
       <div class="how-step-num">03</div>
@@ -303,7 +328,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
         <div class="slide-cat" id="slideCat">Category</div>
         <div class="slide-question" id="slideQuestion">Question goes here</div>
         <div class="go-deeper"><span class="go-deeper-label">Go deeper</span><span id="slideGoDeeper"></span></div>
-        <div class="answers-card" id="answersCard"><h4>Possible answers</h4><ul id="answersList"></ul></div>
+        <div class="keep-talking"><span class="go-deeper-label">Keep talking</span><ul id="followUpList"></ul></div>
+        <div class="vocab-row" id="slideVocabRow"></div>
+        <div class="answers-card" id="answersCard"><h4>Possible answers</h4><ul id="answersList"></ul><div class="creative-answer" id="creativeAnswer"></div></div>
       </div>
     </div>
   </div>
@@ -315,7 +342,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
   </div>
 </div>
 
-<div class="vocab-tooltip" id="vocabTooltip"><span class="vt-word" id="vtWord"></span><span id="vtDef"></span></div>
+<div class="vocab-tooltip" id="vocabTooltip" role="tooltip"><span class="vt-word" id="vtWord"></span><span class="vt-pos" id="vtPos"></span><span class="vt-def" id="vtDef"></span><span class="vt-ex" id="vtEx"></span></div>
 
 <script src="lesson-data.js"></script>
 <script>
@@ -443,10 +470,25 @@ function _toUS(s){
     'whilst':'while','amongst':'among','towards':'toward','labour':'labor',
     'humour':'humor','rumour':'rumor','honour':'honor','favour':'favor',
     'recognised':'recognized','organising':'organizing','prioritise':'prioritize',
-    'summarise':'summarize','apologise':'apologize','centre':'center',
+    'summarise':'summarize','apologise':'apologize',
     'colours':'colors','practising':'practicing','practised':'practiced',
     'realise':'realize','realised':'realized','realising':'realizing',
-    'apologised':'apologized','apologising':'apologizing'
+    'apologised':'apologized','apologising':'apologizing',
+'armour':'armor',
+'cancelled':'canceled',
+'counselling':'counseling',
+'dialling':'dialing',
+'fuelled':'fueled',
+'gruelling':'grueling',
+'harmonise':'harmonize',
+'modernise':'modernize',
+'organise':'organize',
+'recognise':'recognize',
+'sympathise':'sympathize',
+'theatre':'theater',
+'flavour':'flavor',
+'flavours':'flavors',
+'savour':'savor'
   };
   var out = s;
   Object.keys(m).forEach(function(k){
@@ -465,7 +507,7 @@ window.toggleVariant = function(){
   var btn = document.getElementById('variantToggle');
   if(btn) btn.textContent = window._variant;
   if(typeof renderSlide === 'function' && document.getElementById('deckView').classList.contains('open')){
-    renderSlide();
+    renderSlide(true);
   }
 };
 document.addEventListener('DOMContentLoaded', function(){
@@ -480,7 +522,7 @@ window.openDeck=function(catName,topic){
   questions=[];
   for(var i=0;i<topic.questions.length;i++){
     var q=topic.questions[i];
-    questions.push({original:q.original,paraphrased:q.paraphrased||'',vocab:q.vocab||[],possibleAnswers:q.possibleAnswers||[]});
+    questions.push({original:q.original,paraphrased:q.paraphrased||'',vocab:q.vocab||[],possibleAnswers:q.possibleAnswers||[],followUps:q.followUps||[],creativeAnswer:q.creativeAnswer||''});
   }
   // Randomize question order each time the deck opens (no shuffle button needed)
   for(var k=questions.length-1;k>0;k--){
@@ -519,13 +561,19 @@ window.toggleAnswers=function(){
   var q=questions[currentIndex];
   var _us2 = (window._variant === 'US');
   var _swap2 = function(s){ return _us2 ? _toUS(s) : s; };
+  var _qVocab2=(q.vocab||[]).map(function(v){ return {word:_swap2(v.word),pos:v.pos||'',definition:_swap2(v.definition||''),example:_swap2(v.example||'')}; });
   var list=(q.possibleAnswers||[]).map(function(a){return _swap2(a);});
   var ul=document.getElementById('answersList');
   ul.innerHTML='';
   for(var i=0;i<list.length;i++){
     var li=document.createElement('li');
-    li.textContent=list[i];
+    li.innerHTML=wrapVocab(list[i],_qVocab2);
     ul.appendChild(li);
+  }
+  var ca=document.getElementById('creativeAnswer');
+  if(ca){
+    var cav=_swap2(q.creativeAnswer||'');
+    ca.innerHTML = cav ? '<span class="creative-answer-label">Make it memorable</span><p>'+escapeHtml(cav)+'</p>' : '';
   }
   card.classList.add('show');
 };
@@ -535,11 +583,15 @@ window.hideVocabTip=function(){
   if(tip) tip.classList.remove('show');
 };
 
-function showVocabTip(word,def,el){
+function showVocabTip(word,pos,def,ex,el){
   var tip=document.getElementById('vocabTooltip');
   if(!tip) return;
   document.getElementById('vtWord').textContent=word;
-  document.getElementById('vtDef').textContent=def;
+  var posEl=document.getElementById('vtPos');
+  if(posEl){ posEl.textContent=pos||''; posEl.style.display=pos?'inline-block':'none'; }
+  document.getElementById('vtDef').textContent=def||'';
+  var exEl=document.getElementById('vtEx');
+  if(exEl){ exEl.textContent=ex||''; exEl.style.display=ex?'block':'none'; }
   tip.classList.add('show');
   var r=el.getBoundingClientRect();
   var tw=tip.offsetWidth, th=tip.offsetHeight;
@@ -557,8 +609,10 @@ document.addEventListener('click',function(e){
   if(hit){
     e.preventDefault();e.stopPropagation();
     var w=hit.getAttribute('data-word')||hit.textContent;
+    var p=hit.getAttribute('data-pos')||'';
     var d=hit.getAttribute('data-def')||'';
-    showVocabTip(w,d,hit);
+    var x=hit.getAttribute('data-example')||'';
+    showVocabTip(w,p,d,x,hit);
     return;
   }
   hideVocabTip();
@@ -615,15 +669,42 @@ function getQuestionImage(question, topicSlug, questionIndex){
 // in initLibrary, so it waits for the same fetch as the library cards).
 window.localImageMap = {};
 
-function renderSlide(){
+// Vocab highlighting. Single-pass wrap: a sequential wrap re-scans its own
+// inserted HTML, so a vocab word inside another entry's text corrupts the markup.
+function escapeHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function attrEsc(s){return escapeHtml(s).replace(/"/g,'&quot;');}
+function wrapVocab(text,vocab){
+  var esc=escapeHtml(text||'');
+  if(!vocab||!vocab.length) return esc;
+  var info={},alts=[];
+  for(var i=0;i<vocab.length;i++){
+    var w=vocab[i].word;
+    if(!w) continue;
+    var ew=escapeHtml(w);
+    info[ew.toLowerCase()]={pos:attrEsc(vocab[i].pos||''),
+                           def:attrEsc(vocab[i].definition||''),
+                           ex:attrEsc(vocab[i].example||'')};
+    alts.push(ew.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+  }
+  if(!alts.length) return esc;
+  alts.sort(function(a,b){return b.length-a.length;});
+  var re=new RegExp('\\b('+alts.join('|')+')\\b','gi');
+  return esc.replace(re,function(m){
+    var d=info[m.toLowerCase()]||{};
+    return '<span class="vocab-inline" data-word="'+attrEsc(m)+'"'
+      +' data-pos="'+d.pos+'" data-def="'+d.def+'"'
+      +' data-example="'+d.ex+'">'+m+'</span>';
+  });
+}
+
+function renderSlide(keepAnswers){
   var q=questions[currentIndex];
   // Apply US/UK spelling variant
   var _us = (window._variant === 'US');
   var _swap = function(s){ return _us ? _toUS(s) : s; };
   var _qOrig = _swap(q.original);
   var _qPara = _swap(q.paraphrased||'');
-  var _qVocab = (q.vocab||[]).map(function(v){ return {word:_swap(v.word), definition:_swap(v.definition||'')}; });
-  var _qAns = (q.possibleAnswers||[]).map(function(a){ return _swap(a); });
+  var _qVocab = (q.vocab||[]).map(function(v){ return {word:_swap(v.word), pos:v.pos||'', definition:_swap(v.definition||''), example:_swap(v.example||'')}; });
   document.getElementById('deckTitle').textContent=topicLabel(currentTopicObj || {slug:'',title:currentTopic});
   var catEl = document.getElementById('deckTitleCat');
   if(catEl) catEl.textContent = currentCat;
@@ -631,37 +712,56 @@ function renderSlide(){
   document.getElementById('dcTotal').textContent=questions.length;
   document.getElementById('slideCat').textContent=currentCat;
 
-  // Question text with vocab words wrapped as dotted-underline inline spans.
-  // Single-pass wrap: the old sequential wrap re-scanned its own inserted HTML,
-  // so a vocab word inside another word's definition corrupted the markup
-  // (e.g. "excited" inside the definition of "look forward to").
-  function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-  function wrapVocab(text,vocab){
-    var esc=escapeHtml(text||'');
-    if(!vocab||!vocab.length) return esc;
-    var defs={},alts=[];
-    for(var i=0;i<vocab.length;i++){
-      var w=vocab[i].word;
-      if(!w) continue;
-      var ew=escapeHtml(w);
-      defs[ew.toLowerCase()]=vocab[i].definition||'';
-      alts.push(ew.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
-    }
-    if(!alts.length) return esc;
-    alts.sort(function(a,b){return b.length-a.length;});
-    var re=new RegExp('\\b('+alts.join('|')+')\\b','gi');
-    return esc.replace(re,function(m){
-      var def=defs[m.toLowerCase()]||'';
-      return '<span class="vocab-inline" data-word="'+m.replace(/"/g,'&quot;')+'" data-def="'+def.replace(/"/g,'&quot;')+'">'+m+'</span>';
-    });
-  }
   var qEl=document.getElementById('slideQuestion');
   qEl.textContent='';
   qEl.innerHTML=wrapVocab(_qOrig,_qVocab);
   var gdEl=document.getElementById('slideGoDeeper');
   gdEl.innerHTML=wrapVocab(_qPara,_qVocab);
 
+  // Conversation follow-ups: always visible, push past the first answer.
+  var fuEl=document.getElementById('followUpList');
+  if(fuEl){
+    var fus=(q.followUps||[]).map(function(f){return _swap(f);});
+    fuEl.innerHTML='';
+    for(var fi=0;fi<fus.length;fi++){
+      var fli=document.createElement('li');
+      fli.textContent=fus[fi];
+      fuEl.appendChild(fli);
+    }
+  }
+
+  // Words to use: a chip per target word, so the tooltip is reachable even
+  // when the word never appears inside the question sentence.
+  var vr=document.getElementById('slideVocabRow');
+  if(vr){
+    vr.innerHTML='';
+    for(var vi=0;vi<_qVocab.length;vi++){
+      var vv=_qVocab[vi];
+      if(!vv.word) continue;
+      var b=document.createElement('button');
+      b.type='button';
+      b.className='vocab-chip';
+      b.setAttribute('data-word',vv.word);
+      b.setAttribute('data-pos',vv.pos||'');
+      b.setAttribute('data-def',vv.definition||'');
+      b.setAttribute('data-example',vv.example||'');
+      b.setAttribute('aria-label','Show meaning of '+vv.word);
+      b.textContent=vv.word;
+      (function(bb){
+        bb.addEventListener('click',function(ev){
+          ev.stopPropagation();
+          showVocabTip(bb.getAttribute('data-word'),bb.getAttribute('data-pos'),
+                       bb.getAttribute('data-def'),bb.getAttribute('data-example'),bb);
+        });
+      })(b);
+      vr.appendChild(b);
+    }
+  }
+
   document.getElementById('deckProgressFill').style.width=((currentIndex+1)/questions.length*100)+'%';
+  // Keep a revealed answers card alive across a UK/US toggle: remember the state
+  // before hiding, then rebuild it with the new strings. Plain navigation resets.
+  var answersWereShown = !!keepAnswers && document.getElementById('answersCard').classList.contains('show');
   hideAnswers();
 
   // Apply per-topic random color theme
@@ -675,7 +775,7 @@ function renderSlide(){
   document.documentElement.style.setProperty('--bg2', theme.bg);
   document.documentElement.style.setProperty('--bg3', theme.panel);
 
-  // Use local image if available, otherwise fallback to Pollinations
+  // Topic cover from mapping-data.json, otherwise the shared fallback photo
   var localImg = (window.localImageMap[slug] && window.localImageMap[slug][String(currentIndex)]);
   var imgUrl = localImg || getQuestionImage(q.original, slug, currentIndex);
   var bgImg = document.getElementById('slideBgImg');
@@ -705,6 +805,7 @@ function renderSlide(){
     void qBox.offsetWidth;
     qBox.style.animation = '';
   }
+  if(answersWereShown) toggleAnswers();
 }
 
 // Image toggle. The toggle node is optional: without this guard a missing element
@@ -723,8 +824,9 @@ if (deckImgToggle) {
 
 document.addEventListener("keydown",function(e){
   if(!document.getElementById("deckView").classList.contains("open"))return;
-  if(e.key==="ArrowRight"||e.key===" "){e.preventDefault();nextSlide();}
-  if(e.key==="ArrowLeft"){e.preventDefault();prevSlide();}
+  var onControl=e.target&&e.target.closest&&e.target.closest("button,a,input,textarea,select,[contenteditable]");
+  if(e.key==="ArrowRight"||e.key===" "){if(onControl)return;e.preventDefault();nextSlide();}
+  if(e.key==="ArrowLeft"){if(onControl)return;e.preventDefault();prevSlide();}
   if(e.key==="r"||e.key==="R"){toggleAnswers();}
   if(e.key==="i"||e.key==="I"){ if(deckImgToggle) deckImgToggle.click(); }
   if(e.key==="Escape"){closeDeck();}
