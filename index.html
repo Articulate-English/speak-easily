@@ -305,9 +305,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
   <p>&copy; 2026 Articulate English. Speak Easily — original materials built by a working teacher.</p>
 </div>
 
+<span id="copyLinkNote" style="position:fixed;top:8px;right:8px;z-index:999;background:#111;color:#fff;padding:6px 10px;border-radius:6px;font-size:.75rem;opacity:0;pointer-events:none">Copied!</span>
 <div class="deck-view" id="deckView">
   <div class="deck-topbar">
     <button class="deck-back" onclick="closeDeck()">&#8592; Back</button>
+    <button class="deck-back" onclick="copyDeckLink()" title="Copy a link to this deck">&#128279; Copy link</button>
     <div class="deck-title-wrap">
       <div class="deck-title-topic" id="deckTitle">Topic Title</div>
       <div class="deck-title-cat" id="deckTitleCat">Category</div>
@@ -432,7 +434,7 @@ function initLibrary(){
     for(var j=0;j<cat.topics.length;j++){
       var t=cat.topics[j];
       var card=document.createElement('a');
-      card.href='#';
+      card.href='?deck=' + encodeURIComponent(t.slug);  /* shareable per-deck link */
       card.className='lesson-card';
       card.onclick=function(c,t){return function(e){e.preventDefault();openDeck(c,t);};}(cat.category,t);
       
@@ -445,6 +447,7 @@ function initLibrary(){
       grid.appendChild(card);
     }
   }
+  openSharedDeck();
 }
 
 // Auto-init when data loads
@@ -532,9 +535,28 @@ window.openDeck=function(catName,topic){
   currentIndex=0;
   hideAnswers();
   document.getElementById('deckView').classList.add('open');
+  try { history.replaceState(null,'','?deck=' + encodeURIComponent(topic.slug)); } catch(e){}
   renderSlide();
 };
 
+window.copyDeckLink=function(){
+  var url=location.href;
+  var done=function(){ var b=document.getElementById('copyLinkNote'); if(b){ b.textContent='Copied!'; b.style.opacity='1'; setTimeout(function(){b.style.opacity='0';},1800); } };
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done,function(){}); }
+  else { var ta=document.createElement('textarea'); ta.value=url; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy');done();}catch(e){} document.body.removeChild(ta); }
+};
+window.openSharedDeck=function(){
+  try {
+    var slug=new URLSearchParams(location.search).get('deck');
+    if(!slug || !window.lessonData) return;
+    for(var i=0;i<window.lessonData.length;i++){
+      var cat=window.lessonData[i];
+      for(var j=0;j<cat.topics.length;j++){
+        if(cat.topics[j].slug===slug){ openDeck(cat.category,cat.topics[j]); return; }
+      }
+    }
+  } catch(e) {}
+};
 window.closeDeck=function(){
   // renderSlide() writes inline custom properties on <html>; inline styles beat the
   // [data-theme] rules, so they must be cleared or the theme cycler goes dead.
@@ -542,6 +564,7 @@ window.closeDeck=function(){
     document.documentElement.style.removeProperty(p);
   });
   document.getElementById('deckView').classList.remove('open');
+  try { history.replaceState(null,'',location.pathname); } catch(e){}
   currentCat=null;currentTopic=null;currentTopicObj=null;questions=[];currentIndex=0;
 };
 
